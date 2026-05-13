@@ -1,0 +1,9 @@
+version: '3.8'
+
+services:
+  bot:
+    build: .
+    env_file: .env
+    volumes:
+      - ./void_runner.db:/app/void_runner.db
+    restart: always
