@@ -1,8 +1,11 @@
+import os
 import aiosqlite
 
-DB_NAME = 'void_runner.db'
+DB_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'data')
+DB_NAME = os.path.join(DB_DIR, 'void_runner.db')
 
 async def init_db():
+    os.makedirs(DB_DIR, exist_ok=True)
     async with aiosqlite.connect(DB_NAME) as db:
         await db.execute('''
             CREATE TABLE IF NOT EXISTS users (

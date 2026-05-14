@@ -6,5 +6,8 @@ services:
     environment:
       - BOT_TOKEN=${BOT_TOKEN}
     volumes:
-      - ./void_runner.db:/app/void_runner.db
+      - bot_data:/app/data
     restart: always
+
+volumes:
+  bot_data:
